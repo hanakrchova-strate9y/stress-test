@@ -442,7 +442,7 @@ async function sendMake() {
   const warn=scores.map((s,i)=>({s,i})).filter(x=>x.s===1).map(x=>AREAS[x.i]).join(", ");
   const good=scores.map((s,i)=>({s,i})).filter(x=>x.s===0).map(x=>AREAS[x.i]).join(", ");
 
-  const payload = {
+  const params = new URLSearchParams({
     meno: uName,
     email: uEmail,
     celkove_skore: tot,
@@ -451,14 +451,12 @@ async function sendMake() {
     varovania: warn || "Žiadne",
     silne_stranky: good || "Žiadne",
     timestamp: new Date().toISOString()
-  };
+  });
 
   try {
-    await fetch(MAKE, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(payload)
+    await fetch(MAKE + "?" + params.toString(), {
+      method: "GET",
+      mode: "no-cors"
     });
   } catch(e) {}
 }
