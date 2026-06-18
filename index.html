@@ -435,18 +435,32 @@ function buildRes() {
 }
 
 async function sendMake() {
-  if(MAKE==="VLOZ_SEM_SVUJ_MAKE_WEBHOOK_URL")return;
+  if(MAKE==="VLOZ_SEM_SVOJ_MAKE_WEBHOOK_URL") return;
+
   const tot=scores.reduce((a,b)=>a+b,0);
   const crit=scores.map((s,i)=>({s,i})).filter(x=>x.s>=2).map(x=>AREAS[x.i]).join(", ");
   const warn=scores.map((s,i)=>({s,i})).filter(x=>x.s===1).map(x=>AREAS[x.i]).join(", ");
   const good=scores.map((s,i)=>({s,i})).filter(x=>x.s===0).map(x=>AREAS[x.i]).join(", ");
-  const payload={
-    jmeno:uName, email:uEmail, celkove_skore:tot,
-    uroven:tot<=4?"Dobrý základ":tot<=10?"Vidím kde to vázne":"Hlavní příčina je jasná",
-    hlavni_slepa_mista:crit||"Žádná", varovani:warn||"Žádná", silne_stranky:good||"Žádná",
-    timestamp:new Date().toISOString()
+
+  const payload = {
+    meno: uName,
+    email: uEmail,
+    celkove_skore: tot,
+    uroven: tot<=4 ? "Dobrý základ" : tot<=10 ? "Vidím, kde to viazne" : "Hlavná príčina je jasná",
+    hlavne_slepe_miesta: crit || "Žiadne",
+    varovania: warn || "Žiadne",
+    silne_stranky: good || "Žiadne",
+    timestamp: new Date().toISOString()
   };
-  try{const c=new AbortController();setTimeout(()=>c.abort(),5000);await fetch(MAKE,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),signal:c.signal});}catch(e){}
+
+  try {
+    await fetch(MAKE, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(payload)
+    });
+  } catch(e) {}
 }
 </script>
 </body>
