@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STRATE9Y Stress Test</title>
+<title>STRATE9Y® byznys test</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -48,6 +48,7 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 .inp { width:100%; padding:15px 18px; background:rgba(255,255,255,0.05); border:1px solid var(--br2); border-radius:8px; color:#fff; font-size:15px; font-family:'Outfit',sans-serif; outline:none; margin-bottom:10px; transition:border-color 0.2s; }
 .inp:focus { border-color:rgba(232,8,15,0.5); }
 .inp::placeholder { color:rgba(255,255,255,0.25); }
+.p1-err { min-height:18px; margin:0 0 10px; color:#ff4d53; font-size:12px; line-height:1.4; text-align:left; }
 .btn { width:100%; padding:16px; background:var(--red); color:#fff; font-family:'Outfit',sans-serif; font-weight:600; font-size:15px; border-radius:8px; border:none; cursor:pointer; transition:all 0.25s; }
 .btn:hover { background:var(--red-l); transform:translateY(-1px); }
 .p1-note { font-size:12px; color:var(--f); margin-top:10px; }
@@ -123,6 +124,15 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 .v-wrap { width:100%; aspect-ratio:16/9; background:var(--bg3); border:1px solid var(--br); border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
 .v-ph { display:flex; flex-direction:column; align-items:center; gap:12px; color:var(--m); text-align:center; padding:24px; }
 .v-play { width:56px; height:56px; border-radius:50%; background:rgba(232,8,15,0.15); border:2px solid rgba(232,8,15,0.4); display:flex; align-items:center; justify-content:center; font-size:20px; padding-left:3px; }
+.next-sec { margin-bottom:32px; }
+.next-lbl { font-size:10px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--red); margin-bottom:12px; }
+.next-box { background:linear-gradient(135deg,rgba(255,255,255,0.055),rgba(232,8,15,0.07)); border:1px solid rgba(232,8,15,0.22); border-radius:12px; padding:28px; }
+.next-box h2 { font-family:'Fraunces',serif; font-size:26px; font-weight:600; line-height:1.12; letter-spacing:-0.4px; margin-bottom:12px; }
+.next-box p { font-size:14px; color:var(--m); line-height:1.7; margin-bottom:22px; }
+.next-grid { display:grid; grid-template-columns:1fr; gap:10px; }
+.next-grid div { display:grid; grid-template-columns:34px 1fr; gap:12px; align-items:start; padding:12px 0; border-top:1px solid var(--br); }
+.next-grid strong { width:26px; height:26px; border-radius:50%; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; line-height:1; }
+.next-grid span { color:rgba(255,255,255,0.72); font-size:13.5px; line-height:1.55; }
 .cta { background:linear-gradient(135deg,rgba(232,8,15,0.1) 0%,rgba(232,8,15,0.02) 100%); border:1px solid rgba(232,8,15,0.2); border-radius:12px; padding:36px; text-align:center; }
 .cta h2 { font-family:'Fraunces',serif; font-size:26px; font-weight:600; letter-spacing:-0.4px; margin-bottom:10px; }
 .cta h2 em { font-style:italic; color:var(--red-l); }
@@ -149,9 +159,9 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
     <div class="logo" style="margin-bottom:28px;justify-content:flex-start;padding:0;">
       <img src="https://strate9y.com/wp-content/uploads/logo-bilocervena.svg" alt="STRATE9Y" style="height:32px;">
     </div>
-    <div class="ey"><div class="ey-l"></div><span class="ey-t">STRATE9Y STRESS TEST</span></div>
-    <h1>Zvládne tvůj byznys<br><em>tlak reality?</em></h1>
-    <p class="p1-sub">9 oblastí, které rozhodují o tom, jestli tvůj byznys roste — nebo jen přežívá. <strong>Zjisti kde tě to brzdí nejvíc.</strong></p>
+    <div class="ey"><div class="ey-l"></div><span class="ey-t">STRATE9Y BYZNYS TEST</span></div>
+    <h1>Víte, kde se váš byznys<br><em>skutečně zasekl?</em></h1>
+    <p class="p1-sub">9 oblastí, které ukážou, kde se váš byznys může zasekávat — ve směru, zákazníkovi, nabídce, systému nebo růstu. <strong>Získejte první jasný signál, kde začít.</strong></p>
     <div class="p1-meta">
       <div class="p1-mi"><div class="p1-mn">9<span>×</span></div><div class="p1-ml">oblastí</div></div>
       <div class="p1-md"></div>
@@ -160,15 +170,16 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
       <div class="p1-mi"><div class="p1-mn">0<span>Kč</span></div><div class="p1-ml">zdarma</div></div>
     </div>
     <div class="p1-form">
-      <input type="text" class="inp" id="uName" placeholder="Tvoje jméno">
-      <input type="email" class="inp" id="uEmail" placeholder="Tvůj email">
-      <button type="button" class="btn" onclick="goTest()">Spustit Stress Test →</button>
+      <input type="text" class="inp" id="uName" placeholder="Vaše jméno">
+      <input type="email" class="inp" id="uEmail" placeholder="Váš e-mail" required autocomplete="email" inputmode="email">
+      <p class="p1-err" id="emailErr"></p>
+      <button type="button" class="btn" onclick="goTest()">Spustit byznys test →</button>
       <p class="p1-note">Zdarma · Výsledek okamžitě · Bez spamu</p>
     </div>
     <div class="p1-proof">
-      <div class="proof-lbl">Co tě čeká</div>
-      <div class="proof-item"><span class="proof-ck">◆</span><p class="proof-tx"><strong>9 otázek</strong> podle STRATE9Y metody — každá mapuje klíčovou oblast tvého byznysu</p></div>
-      <div class="proof-item"><span class="proof-ck">◆</span><p class="proof-tx"><strong>Osobní výsledek</strong> — kde tě to brzdí nejvíc a co s tím</p></div>
+      <div class="proof-lbl">Co vás čeká</div>
+      <div class="proof-item"><span class="proof-ck">◆</span><p class="proof-tx"><strong>9 otázek</strong> podle STRATE9Y® metody — každá mapuje klíčovou oblast vašeho byznysu</p></div>
+      <div class="proof-item"><span class="proof-ck">◆</span><p class="proof-tx"><strong>Osobní výsledek</strong> — kde vás to může brzdit nejvíc a co s tím</p></div>
       <div class="proof-item"><span class="proof-ck">◆</span><p class="proof-tx"><strong>Výsledek </strong> rovnou na obrazovce</p></div>
     </div>
   </div>
@@ -187,8 +198,8 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 
     <div class="step on" id="s0">
       <div class="s-cat"><div class="s-cn">01</div><span class="s-cl">Problém</span><span class="s-cp">· NÁPAD</span></div>
-      <h2>Víš přesně, jaký problém tvůj produkt řeší?</h2>
-      <p class="s-ctx">Zakladatelé vědí co prodávají — ale ne proč to zákazník skutečně potřebuje. Bez jasného problému není ani jasný zákazník.</p>
+      <h2>Víte přesně, jaký problém váš produkt řeší?</h2>
+      <p class="s-ctx">Podnikatelé často vědí, co prodávají — ale ne vždy přesně pojmenují, proč to zákazník skutečně potřebuje. Bez jasného problému není ani jasný zákazník.</p>
       <div class="opts" id="o0">
         <div class="opt" onclick="pick(0,0,0)"><div class="o-radio"></div><div class="o-txt">Ano — dokážu to popsat jednou větou a zákazník to okamžitě pochopí</div></div>
         <div class="opt" onclick="pick(0,1,1)"><div class="o-radio"></div><div class="o-txt">Přibližně — vím obecně, ale nedokážu to přesně pojmenovat</div></div>
@@ -200,8 +211,8 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 
     <div class="step" id="s1">
       <div class="s-cat"><div class="s-cn">02</div><span class="s-cl">Zákazník</span><span class="s-cp">· NÁPAD</span></div>
-      <h2>Znáš svého zákazníka natolik, abys mu uměla napsat?</h2>
-      <p class="s-ctx">Nestačí demografika. Potřebuješ vědět čeho se bojí a proč to teď řeší.</p>
+      <h2>Znáte svého zákazníka natolik, abyste mu uměli napsat?</h2>
+      <p class="s-ctx">Nestačí demografika. Potřebujete vědět, co řeší, čeho se obává a proč je to pro něj důležité právě teď.</p>
       <div class="opts" id="o1">
         <div class="opt" onclick="pick(1,0,0)"><div class="o-radio"></div><div class="o-txt">Ano — znám konkrétní lidi, mluvím s nimi, vím co prožívají</div></div>
         <div class="opt" onclick="pick(1,1,1)"><div class="o-radio"></div><div class="o-txt">Mám představu — ale spíš podle sebe, ne podle dat</div></div>
@@ -213,7 +224,7 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 
     <div class="step" id="s2">
       <div class="s-cat"><div class="s-cn">03</div><span class="s-cl">Moment</span><span class="s-cp">· NÁPAD</span></div>
-      <h2>Víš, kdy zákazník tvůj produkt skutečně potřebuje?</h2>
+      <h2>Víte, kdy zákazník váš produkt skutečně potřebuje?</h2>
       <p class="s-ctx">Správný produkt ve špatný čas se neprodá. Existuje konkrétní spouštěč nákupu.</p>
       <div class="opts" id="o2">
         <div class="opt" onclick="pick(2,0,0)"><div class="o-radio"></div><div class="o-txt">Ano — vím přesně co zákazníka přivede k nákupu a kdy to nastane</div></div>
@@ -226,7 +237,7 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 
     <div class="step" id="s3">
       <div class="s-cat"><div class="s-cn">04</div><span class="s-cl">Řešení</span><span class="s-cp">· STRATEGIE</span></div>
-      <h2>Je tvůj produkt skutečně řešením — nebo jen dobrým nápadem?</h2>
+      <h2>Je váš produkt skutečně řešením — nebo jen dobrým nápadem?</h2>
       <p class="s-ctx">Mnoho produktů vzniká z nadšení tvůrce, ne z potřeby zákazníka.</p>
       <div class="opts" id="o3">
         <div class="opt" onclick="pick(3,0,0)"><div class="o-radio"></div><div class="o-txt">Ano — mám zpětnou vazbu od zákazníků, kteří potvrdili, že to funguje</div></div>
@@ -239,8 +250,8 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 
     <div class="step" id="s4">
       <div class="s-cat"><div class="s-cn">05</div><span class="s-cl">Rozlišení</span><span class="s-cp">· STRATEGIE</span></div>
-      <h2>Proč by zákazník koupil od tebe — a ne od jiného?</h2>
-      <p class="s-ctx">Bez jasného rozlišení jsi jen jedna z mnoha.</p>
+      <h2>Proč by zákazník koupil od vás — a ne od někoho jiného?</h2>
+      <p class="s-ctx">Bez jasného rozlišení jste pro zákazníka jen jedna z mnoha možností.</p>
       <div class="opts" id="o4">
         <div class="opt" onclick="pick(4,0,0)"><div class="o-radio"></div><div class="o-txt">Mám jasné USP — vím přesně čím se lišíme a zákazníci to cítí</div></div>
         <div class="opt" onclick="pick(4,1,1)"><div class="o-radio"></div><div class="o-txt">Myslím, že jsme jiní — ale nedokážu to přesně komunikovat</div></div>
@@ -252,8 +263,8 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 
     <div class="step" id="s5">
       <div class="s-cat"><div class="s-cn">06</div><span class="s-cl">Model</span><span class="s-cp">· STRATEGIE</span></div>
-      <h2>Má tvůj byznys logiku, která funguje bez tebe?</h2>
-      <p class="s-ctx">Byznys model je o tom, zda systém roste — nebo zda rosteš jen ty.</p>
+      <h2>Má váš byznys logiku, která funguje i bez vás?</h2>
+      <p class="s-ctx">Byznys model ukazuje, zda roste systém — nebo jen vaše zátěž.</p>
       <div class="opts" id="o5">
         <div class="opt" onclick="pick(5,0,0)"><div class="o-radio"></div><div class="o-txt">Ano — mám nastavené procesy, byznys funguje i když já ne</div></div>
         <div class="opt" onclick="pick(5,1,1)"><div class="o-radio"></div><div class="o-txt">Částečně — něco funguje samo, ale většina závisí na mně</div></div>
@@ -278,20 +289,20 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 
     <div class="step" id="s7">
       <div class="s-cat"><div class="s-cn">08</div><span class="s-cl">Distribuce</span><span class="s-cp">· AKCE</span></div>
-      <h2>Jak získáváš zákazníky dnes?</h2>
+      <h2>Jak získáváte zákazníky dnes?</h2>
       <p class="s-ctx">Dobrý produkt bez distribuce je tajemství.</p>
       <div class="opts" id="o7">
         <div class="opt" onclick="pick(7,0,0)"><div class="o-radio"></div><div class="o-txt">Mám funkční kanál — vím odkud zákazníci přicházejí a mohu to škálovat</div></div>
         <div class="opt" onclick="pick(7,1,1)"><div class="o-radio"></div><div class="o-txt">Hlavně doporučení — zákazníci přicházejí, ale nedokážu to ovlivnit</div></div>
         <div class="opt" onclick="pick(7,2,2)"><div class="o-radio"></div><div class="o-txt">Sociální sítě — postuji, ale prodeje to nepřináší</div></div>
-        <div class="opt" onclick="pick(7,3,2)"><div class="o-radio"></div><div class="o-txt">E-shop — spustila jsem ho a čekám, že zákazníci najdou cestu sami</div></div>
+        <div class="opt" onclick="pick(7,3,2)"><div class="o-radio"></div><div class="o-txt">E-shop — spustil/a jsem ho a čekám, že zákazníci najdou cestu sami</div></div>
       </div>
       <div class="s-nav"><button type="button" class="s-back" onclick="bck(7)">← Zpět</button><button type="button" class="s-next" id="n7" onclick="nxt(7)">Další →</button></div>
     </div>
 
     <div class="step" id="s8">
       <div class="s-cat"><div class="s-cn">09</div><span class="s-cl">Příští krok</span><span class="s-cp">· AKCE</span></div>
-      <h2>Víš, jaký je tvůj nejdůležitější příští krok?</h2>
+      <h2>Víte, jaký je váš nejdůležitější další krok?</h2>
       <p class="s-ctx">Správný příští krok je jen jeden. Zbytek čeká.</p>
       <div class="opts" id="o8">
         <div class="opt" onclick="pick(8,0,0)"><div class="o-radio"></div><div class="o-txt">Ano — mám jasnou prioritu a vím proč právě tuto</div></div>
@@ -308,29 +319,36 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 <div class="pg" id="pg3">
   <div class="r-wrap">
     <div class="logo" style="margin-bottom:32px;justify-content:flex-start;padding:0;"><img src="https://strate9y.com/wp-content/uploads/logo-bilocervena.svg" alt="STRATE9Y" style="height:28px;"></div>
-    <div class="ey"><div class="ey-l"></div><span class="ey-t">Tvůj výsledek</span></div>
-    <h1 id="rTitle">Vidím kde to vázne.</h1>
+    <div class="ey"><div class="ey-l"></div><span class="ey-t">Váš výsledek</span></div>
+    <h1 id="rTitle">Vidím, kde to vázne.</h1>
     <p class="r-intro" id="rIntro"></p>
     <div class="sb-box">
-      <div class="sb-lbl">Přehled 9 oblastí STRATE9Y metody</div>
+      <div class="sb-lbl">Přehled 9 oblastí STRATE9Y® metody</div>
       <div class="sbs" id="rBars"></div>
     </div>
     <div class="finds" id="rFinds"></div>
-    <div class="v-sec">
-      <div class="v-lbl">Podívej se — co s tím dělám</div>
-      <div class="v-wrap">
-        <div class="v-ph">
-          <div class="v-play">▶</div>
-          <p>Video bude dostupné po natočení</p>
+    <div class="next-sec">
+      <div class="next-lbl">Co s výsledkem udělat dál</div>
+      <div class="next-box">
+        <h2>Výsledek testu není diagnóza. Je to první signál.</h2>
+        <p>
+          Test ukazuje, kde se může byznys zasekávat. Skutečný význam výsledku ale vzniká
+          až ve chvíli, kdy ho zasadíme do reality vašeho podnikání: nabídky, zákazníků,
+          rozhodování, kapacity a systému.
+        </p>
+        <div class="next-grid">
+          <div><strong>1</strong><span>Podívejte se na nejslabší oblasti ve výsledku.</span></div>
+          <div><strong>2</strong><span>Všimněte si, jestli se opakuje téma hodnoty, systému nebo růstu.</span></div>
+          <div><strong>3</strong><span>Na úvodním rozhovoru ověříme, jestli dává smysl hlubší diagnostika.</span></div>
         </div>
       </div>
     </div>
     <div class="cta">
-      <div class="pulse"><div class="pulse-d"></div><span class="pulse-t">Aktuálně mám volná místa</span></div>
-      <h2>Chceš vědět co s tím <em>konkrétně?</em></h2>
-      <p>Discovery call je <strong>bezplatný 30minutový hovor</strong>. Zjistíme, jestli si sedíme a jestli dává spolupráce smysl. Bez závazků. Bez tlaku.</p>
-      <a href="https://calendly.com/hana-krchova/konzultace" target="_blank" class="cta-btn">Rezervovat discovery call →</a>
-      <p class="cta-note">Hana Krchová · STRATE9Y · 30 min · Zdarma</p>
+      <div class="pulse"><div class="pulse-d"></div><span class="pulse-t">Aktuálně mám 2 volná místa pro byznys diagnostiku</span></div>
+      <h2>Chcete vědět, co s výsledkem <em>konkrétně?</em></h2>
+      <p>Rezervujte si <strong>bezplatný 15minutový úvodní rozhovor</strong>. Podíváme se na váš výsledek, zasadíme ho do kontextu vašeho byznysu a zjistíme, jestli dává smysl pokračovat do STRATE9Y® byznys diagnostiky.</p>
+      <a href="https://calendly.com/hana-krchova/konzultace" target="_blank" rel="noopener" class="cta-btn">Rezervovat 15minutový rozhovor →</a>
+      <p class="cta-note">Hana Krchová · STRATE9Y® · 15 min · zdarma · bez tlaku</p>
     </div>
   </div>
 </div>
@@ -339,15 +357,15 @@ html,body { background:var(--bg); color:#fff; min-height:100vh; font-family:'Out
 const MAKE = "https://hook.eu2.make.com/35jqfqdpbhld3cl3ug4fw1gufkm4ur7c";
 const AREAS = ["Problém","Zákazník","Moment","Řešení","Rozlišení","Model","Nabídka","Distribuce","Příští krok"];
 const FT = [
-  ["Jasnost problému je silná stránka.","Problém definovaný jen obecně — zákazník musí cítit, že mluvíš o něm, ne o všech.","Bez jasně pojmenovaného problému hledáš zákazníka naslepo. <strong>Tohle je nejčastější příčina nulových prodejů.</strong>"],
-  ["Znalost zákazníka je tvoje konkurenční výhoda.","Zákazník definovaný jen demograficky nekupuje. <strong>Potřebuješ vědět co ho ráno brzdí a večer trápí.</strong>","Bez konkrétního zákazníka mluvíš ke všem a nikdo se nepozná."],
-  ["Znáš spouštěč nákupu — silná pozice.","Tušíš timing, ale bez ověření oslovuješ ve špatný čas. <strong>Správný moment zdvojnásobí konverze.</strong>","Bez znalosti správného momentu házíš nabídky do prázdna."],
+  ["Jasnost problému je silná stránka.","Problém definovaný jen obecně — zákazník musí cítit, že mluvíte o něm, ne o všech.","Bez jasně pojmenovaného problému hledáte zákazníka naslepo. <strong>Tohle je nejčastější příčina nulových prodejů.</strong>"],
+  ["Znalost zákazníka je vaše konkurenční výhoda.","Zákazník definovaný jen demograficky nekupuje. <strong>Potřebujete vědět, co zákazníka skutečně brzdí a proč to řeší právě teď.</strong>","Bez konkrétního zákazníka mluvíte ke všem — a nikdo se v tom nepozná."],
+  ["Znáte spouštěč nákupu — silná pozice.","Tušíte správný moment, ale bez ověření můžete oslovovat ve špatný čas. <strong>Správný moment zdvojnásobí konverze.</strong>","Bez znalosti správného momentu házíte nabídky do prázdna."],
   ["Ověřený produkt je silná výchozí pozice.","Ověření jen na blízkých není ověření. <strong>Blízcí nekupují — kupují cizí lidé z vlastní vůle.</strong>","Produkt bez tržního ověření je sázka naslepo."],
-  ["Jasné rozlišení je základ obchodní pozice.","Cítíš, že jste jiní — ale musíš to říct za 10 sekund. <strong>Pokud to neřekneš ty, zákazník to neví.</strong>","Bez jasného rozlišení vždy prohraje ten s nižší cenou."],
-  ["Byznys fungující bez tebe je základ škálování.","Byznys závislý z větší části na tobě je skleněný strop. <strong>Každý krok výš vyžaduje víc tebe — a ty máš jen 24 hodin.</strong>","Jsi středobodem všeho. To není škálování — to je past."],
-  ["Jasná nabídka je nejrychlejší cesta k prodeji.","Pokud musíš každému vysvětlovat osobně, nabídka není hotová. <strong>Dobrá nabídka prodává sama.</strong>","Složitost zabíjí prodeje — zákazník nekoupí co nechápe."],
-  ["Funkční distribuční kanál je páteř byznysu.","Doporučení jsou skvělá, ale nespolehlivá. <strong>Potřebuješ kanál, který ovládáš a můžeš škálovat.</strong>","E-shop a sociální sítě samy od sebe neprodávají. Nikdy neprodávaly."],
-  ["Jasná priorita je nejcennější věc v byznysu.","Seznam bez priority je iluze produktivity. <strong>Jeden správný krok přinese víc než deset špatných.</strong>","Bez jasného příštího kroku točíš kola. Zahlcení je příčina stagnace — ne nedostatek práce."]
+  ["Jasné rozlišení je základ obchodní pozice.","Možná cítíte, že jste jiní — ale potřebujete to umět říct do 10 sekund. <strong>Pokud to neřeknete jasně vy, zákazník to neví.</strong>","Bez jasného rozlišení vždy prohraje ten s nižší cenou."],
+  ["Byznys fungující bez vás je základ škálování.","Byznys závislý z větší části na vás je skleněný strop. <strong>Každý krok výš pak vyžaduje víc vaší kapacity — a ta není nekonečná.</strong>","Jste středobodem všeho. To není škálování — to je past."],
+  ["Jasná nabídka je nejrychlejší cesta k prodeji.","Pokud musíte nabídku každému vysvětlovat osobně, ještě není dostatečně jasná. <strong>Dobrá nabídka prodává sama.</strong>","Složitost zabíjí prodeje — zákazník nekoupí co nechápe."],
+  ["Funkční distribuční kanál je páteř byznysu.","Doporučení jsou skvělá, ale nespolehlivá. <strong>Potřebujete kanál, který ovládáte a můžete škálovat.</strong>","E-shop a sociální sítě samy od sebe neprodávají. Nikdy neprodávaly."],
+  ["Jasná priorita je nejcennější věc v byznysu.","Seznam bez priority je iluze produktivity. <strong>Jeden správný krok přinese víc než deset špatných.</strong>","Bez jasného dalšího kroku se snadno točíte v kruhu. Zahlcení je často příčina stagnace — ne nedostatek práce."]
 ];
 
 let uName="", uEmail="";
@@ -359,11 +377,54 @@ function showPg(id) {
   window.scrollTo(0,0);
 }
 
+function isValidEmail(email) {
+  const e = email.trim().toLowerCase();
+  const basicPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  if (!basicPattern.test(e)) return false;
+  if (e.includes('..')) return false;
+
+  const parts = e.split('@');
+  if (parts.length !== 2) return false;
+
+  const local = parts[0];
+  const domain = parts[1];
+
+  if (!local || !domain) return false;
+  if (domain.startsWith('.') || domain.endsWith('.')) return false;
+  if (!domain.includes('.')) return false;
+
+  const blockedExamples = [
+    'test@test.com',
+    'test@gmail.com',
+    'a@a.com',
+    'aa@aa.com',
+    'email@email.com'
+  ];
+
+  if (blockedExamples.includes(e)) return false;
+
+  return true;
+}
+
 function goTest() {
-  const e=document.getElementById('uEmail').value.trim();
-  if(!e||!e.includes('@')){document.getElementById('uEmail').style.borderColor='rgba(232,8,15,0.8)';document.getElementById('uEmail').focus();return;}
-  uName=document.getElementById('uName').value.trim()||'—';
-  uEmail=e;
+  const emailInput = document.getElementById('uEmail');
+  const errorBox = document.getElementById('emailErr');
+  const e = emailInput.value.trim();
+
+  emailInput.style.borderColor = '';
+  errorBox.textContent = '';
+
+  if (!isValidEmail(e)) {
+    emailInput.style.borderColor = 'rgba(232,8,15,0.8)';
+    errorBox.textContent = 'Zadejte prosím platný e-mail. Výsledek testu na něj můžeme navázat.';
+    emailInput.focus();
+    return;
+  }
+
+  uName = document.getElementById('uName').value.trim() || '—';
+  uEmail = e;
+
   showPg('pg2');
   updProg();
 }
@@ -407,9 +468,9 @@ function showRes() {
 function buildRes() {
   const tot=scores.reduce((a,b)=>a+b,0);
   let title,intro;
-  if(tot<=4){title="Dobrý základ. Čas ho rozvinout.";intro="Tvůj byznys má silný základ ve většině oblastí. <strong>Pár slepých míst ale stačí, aby celý systém brzdil.</strong>";}
-  else if(tot<=10){title="Vidím kde to vázne.";intro="Máš produkt s potenciálem — ale v několika klíčových oblastech jsou mezery, které <strong>brzdí celý byznys</strong>. Není to o snaze, je to o systému.";}
-  else{title="Hlavní příčina je jasná.";intro="Tvůj byznys má <strong>výrazné mezery ve více oblastech najednou.</strong> Bez systémové práce se to samo nevyřeší.";}
+  if(tot<=4){title="Dobrý základ. Teď ho zpřesnit.";intro="Váš byznys má silný základ ve většině oblastí. <strong>I několik slepých míst ale může brzdit celý systém.</strong>";}
+  else if(tot<=10){title="Vidím, kde to vázne.";intro="Máte produkt s potenciálem — ale v několika klíčových oblastech jsou mezery, které <strong>brzdí celý byznys</strong>. Není to o větší snaze, ale o systému.";}
+  else{title="Hlavní příčina je jasná.";intro="Váš byznys má <strong>výrazné mezery ve více oblastech najednou.</strong> Bez systémové práce se to samo nevyřeší.";}
   document.getElementById('rTitle').textContent=title;
   document.getElementById('rIntro').innerHTML=intro;
 
